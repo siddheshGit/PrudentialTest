@@ -1,0 +1,99 @@
+[
+  {
+    "id": 2643741,
+    "name": "City of London",
+    "country": "GB",
+    "coord": {
+      "lon": -0.09184,
+      "lat": 51.512791
+    }
+  },
+
+  {
+    "id": 2988507,
+    "name": "Paris",
+    "country": "FR",
+    "coord": {
+      "lon": 2.3488,
+      "lat": 48.853409
+    }
+  },
+  {
+    "id": 2964574,
+    "name": "Dublin",
+    "country": "IE",
+    "coord": {
+      "lon": -6.26719,
+      "lat": 53.34399
+    }
+  },
+  {
+    "id": 4229546,
+    "name": "Washington",
+    "country": "US",
+    "coord": {
+      "lon": -82.739311,
+      "lat": 33.73679
+    }
+  },
+
+  {
+    "id": 5128581,
+    "name": "New York",
+    "country": "US",
+    "coord": {
+      "lon": -74.005966,
+      "lat": 40.714272
+    }
+  },
+
+  {
+    "id": 1273294,
+    "name": "Delhi",
+    "country": "IN",
+    "coord": {
+      "lon": 77.216667,
+      "lat": 28.666668
+    }
+  },
+
+  {
+    "id": 1275339,
+    "name": "Mumbai",
+    "country": "IN",
+    "coord": {
+      "lon": 72.847939,
+      "lat": 19.01441
+    }
+  },
+
+  {
+    "id": 6539761,
+    "name": "Marino",
+    "country": "IT",
+    "coord": {
+      "lon": 12.64438,
+      "lat": 41.762421
+    }
+  },
+  {
+    "id": 2950159,
+    "name": "Berlin",
+    "country": "DE",
+    "coord": {
+      "lon": 13.41053,
+      "lat": 52.524368
+    }
+  },
+
+  {
+    "id": 292223,
+    "name": "Dubai",
+    "country": "AE",
+    "coord": {
+      "lon": 55.304722,
+      "lat": 25.258169
+    }
+  }
+
+]

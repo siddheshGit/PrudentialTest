@@ -1,0 +1,14 @@
+c:\users\icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\WeatherServiceApplication.exe.config
+c:\users\icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\WeatherServiceApplication.exe
+c:\users\icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\WeatherServiceApplication.pdb
+c:\users\icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\obj\Debug\WeatherServiceApplication.csproj.CoreCompileInputs.cache
+c:\users\icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\obj\Debug\WeatherServiceApplication.exe
+c:\users\icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\obj\Debug\WeatherServiceApplication.pdb
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\Newtonsoft.Json.dll
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\Newtonsoft.Json.xml
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\obj\Debug\WeatherServiceApplication.csproj.CopyComplete
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\City.json
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\System.Configuration.ConfigurationManager.dll
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\System.Security.AccessControl.dll
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\System.Security.Permissions.dll
+c:\Users\Icsappserver\source\repos\WeatherServiceApplication\WeatherServiceApplication\bin\Debug\System.Security.Principal.Windows.dll

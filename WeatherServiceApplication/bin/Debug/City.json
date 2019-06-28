@@ -1,0 +1,22 @@
+[
+  {
+    "id": 2643741,
+    "name": "City of London",
+    "country": "GB",
+    "coord": {
+      "lon": -0.09184,
+      "lat": 51.512791
+    }
+  },
+
+  {
+    "id": 2988507,
+    "name": "Paris",
+    "country": "FR",
+    "coord": {
+      "lon": 2.3488,
+      "lat": 48.853409
+    }
+  }
+
+]
