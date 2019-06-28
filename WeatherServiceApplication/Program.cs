@@ -18,8 +18,9 @@ namespace WeatherServiceApplication
         {
 
             WheatherService wheatherService = new WheatherService();
+            string cityFileName = "city.json";
 
-            List<CityModel>CityDetails=wheatherService.ReadCityJsonFile();
+            List<CityModel>CityDetails=wheatherService.ReadCityJsonFile(cityFileName);
 
            wheatherService.GetWeatherByCity(CityDetails).Wait();
 

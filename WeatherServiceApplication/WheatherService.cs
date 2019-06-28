@@ -15,19 +15,19 @@ namespace WeatherServiceApplication
     {
         string url = string.Empty;
         string appID = ConfigurationManager.AppSettings["appID"];
-        string units = ConfigurationManager.AppSettings["units"];
+        string units = ConfigurationManager.AppSettings["units"];        
          /// <summary>
          /// Read json file from location
          /// </summary>
          /// <returns></returns>         
-        public List<CityModel> ReadCityJsonFile()
+        public List<CityModel> ReadCityJsonFile(string fileName)
         {
             Console.WriteLine("Reading city details file....");
             List<CityModel> cityList = new List<CityModel>();
 
             try
             {
-                using (StreamReader reader = new StreamReader("City.json"))
+                using (StreamReader reader = new StreamReader(fileName))
                 {
                     string cityData = reader.ReadToEnd();
                     cityList = JsonConvert.DeserializeObject<List<CityModel>>(cityData);
