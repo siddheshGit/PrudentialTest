@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,10 +15,13 @@ namespace WeatherServiceApplication
     {
         string url = string.Empty;
         string appID = ConfigurationManager.AppSettings["appID"];
-        string units = ConfigurationManager.AppSettings["units"];        
+        string units = ConfigurationManager.AppSettings["units"]; 
+
+        
          /// <summary>
-         /// Read json file from location
+         /// 
          /// </summary>
+         /// <param name="fileName"></param>
          /// <returns></returns>         
         public List<CityModel> ReadCityJsonFile(string fileName)
         {
@@ -42,7 +45,11 @@ namespace WeatherServiceApplication
             return cityList;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cityList"></param>
+        /// <returns></returns>
         public async Task<string> GetWeatherByCity(List<CityModel> cityList)
         {                                            
             List<WeatherFileModel> AllCityWeatherList = new List<WeatherFileModel>();
@@ -58,10 +65,10 @@ namespace WeatherServiceApplication
                         Task<HttpResponseMessage> response = httpClient.GetAsync(url);
                         string responseText = await response.Result.Content.ReadAsStringAsync();
                         CityWeather cityWeather = JsonConvert.DeserializeObject<CityWeather>(responseText);
+                        
+                        WeatherFileModel fileModel = MapWeatherResponse(cityWeather);                        
 
-                        WeatherFileModel fileModel = MapWeatherResponse(cityWeather);
-
-                        result= CreateJsonFile(fileModel);
+                        result = CreateJsonFile(fileModel);                        
                     }
 
                 }
@@ -71,16 +78,22 @@ namespace WeatherServiceApplication
                 result = ex.Message.ToString();
             }
 
-            return result;
+            Console.WriteLine("Weather data retrived successfully");
+            return result;            
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cityWeatherResponse"></param>
+        /// <returns></returns>
         public WeatherFileModel MapWeatherResponse(CityWeather cityWeatherResponse)
         {
             WeatherFileModel fileModel = new WeatherFileModel();
 
             fileModel.CityName = cityWeatherResponse.name;
-            fileModel.Date = cityWeatherResponse.dt;
+            fileModel.Date = getDateTimeFromUnixTimeStamp(cityWeatherResponse.dt);
             fileModel.Description = cityWeatherResponse.weather.Select(d => d.description).FirstOrDefault();
             fileModel.Temperature = cityWeatherResponse.main.temp;
             fileModel.Pressure = cityWeatherResponse.main.pressure;
@@ -88,18 +101,33 @@ namespace WeatherServiceApplication
             fileModel.Temp_max = cityWeatherResponse.main.temp_max;
             fileModel.Temp_min = cityWeatherResponse.main.temp_min;
             fileModel.WindSpeed = cityWeatherResponse.wind.speed;
-            fileModel.Sunrise = cityWeatherResponse.sys.sunrise;
-            fileModel.Sunset = cityWeatherResponse.sys.sunset;
+            fileModel.Sunrise = getDateTimeFromUnixTimeStamp(cityWeatherResponse.sys.sunrise);
+            fileModel.Sunset = getDateTimeFromUnixTimeStamp(cityWeatherResponse.sys.sunset);
 
             return fileModel;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="timestamp"></param>
+        /// <returns></returns>
+        public DateTime getDateTimeFromUnixTimeStamp(int timestamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(timestamp);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileModel"></param>
+        /// <returns></returns>
         public string CreateJsonFile(WeatherFileModel fileModel)
         {
             string sucess;
             try
             {
-                JObject obj = JObject.FromObject(new WeatherFileModel()
+                JObject fileJsonObject = JObject.FromObject(new WeatherFileModel()
                 {
                     
                     CityName = fileModel.CityName,
@@ -115,8 +143,9 @@ namespace WeatherServiceApplication
                     Sunset = fileModel.Sunset, 
                 });
 
-                Directory.CreateDirectory(@"C:\Wheather Data");
-                File.WriteAllText(@"C:\Wheather Data\" + fileModel.CityName + " " + fileModel.Date + ".txt", obj.ToString());
+                string folderName = "Wheather Data " + DateTime.Now.ToString("dd-MM-yyyy");
+                Directory.CreateDirectory(@"C:\" + folderName);
+                File.WriteAllText(@"C:\" + folderName +"\\" + fileModel.CityName + ".txt", fileJsonObject.ToString());
 
                 sucess = "Wheather details file has been created and stored at C:Wheather Data folder";
             }
