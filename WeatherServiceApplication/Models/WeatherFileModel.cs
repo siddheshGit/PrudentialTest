@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace WeatherServiceApplication
         public string CityName { get; set; }
 
         [JsonProperty(PropertyName = "Date")]
-        public int Date { get; set; }
+        public DateTime Date { get; set; }
 
         [JsonProperty(PropertyName = "Weather Description")]
         public string Description { get; set; }
@@ -37,10 +37,10 @@ namespace WeatherServiceApplication
         public double WindSpeed { get; set; }
 
         [JsonProperty(PropertyName = "Sunrise(DateTime)")]
-        public int Sunrise { get; set; }
+        public DateTime Sunrise { get; set; }
 
         [JsonProperty(PropertyName = "Sunset(DateTime)")]
-        public int Sunset { get; set; }
+        public DateTime Sunset { get; set; }
 
         
     }
