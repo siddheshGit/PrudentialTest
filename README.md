@@ -12,7 +12,7 @@ Steps To Run
 4. Run application using visual studio
 ---------------------------------------------------------------------------------------
 Execute Run package
-1. Download zip packge 
+1. Download Todays weather by city.zip packge 
 
 2. Run WeatherServiceApplication exe file
 
