@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -28,10 +28,12 @@ namespace WeatherServiceTestApplication
         [TestMethod]
         public async Task TestGetWeatherByCityMethod()
         {
-            string expected = "Wheather details file has been created and stored at C:Wheather Data folder";
-            string result = await asa.GetWeatherByCity(CityList);
+                      
+            var result =   await asa.GetWeatherByCity(CityList);
+            Assert.IsNotNull(result, "error");
+            Console.Write(result);
+     
 
-            Assert.AreEqual(expected, result);
         }
     }
 }
