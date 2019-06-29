@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -22,8 +22,10 @@ namespace WeatherServiceApplication
 
             List<CityModel>CityDetails=wheatherService.ReadCityJsonFile(cityFileName);
 
-           wheatherService.GetWeatherByCity(CityDetails).Wait();
+            string result = wheatherService.GetWeatherByCity(CityDetails).GetAwaiter().GetResult();
+            Console.WriteLine(result);
 
+            Console.WriteLine("Press Enter to Exit..");
             Console.ReadKey();
         }
        
